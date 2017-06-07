@@ -16,15 +16,5 @@
 //= require turbolinks
 //= require moment
 //= require fullcalendar
+//= require calendar
 
-$(document).ready(function() {
-  $("#calendar").fullCalendar({
-    events: "/events.json",
-    eventLimit: 3,
-    header: {
-      left: 'prev, next',
-      center: "title",
-      right: 'month, agendaWeek, agendaDay'
-    }
-  });
-})

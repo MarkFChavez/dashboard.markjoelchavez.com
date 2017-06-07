@@ -2,4 +2,29 @@
   Hello, welcome to your calendar!
   = link_to "Logout", destroy_user_session_path, method: :delete
 
-#calendar
+.row
+  .col-lg-12
+    #calendar
+
+#create-event-modal.modal.fade{ role: "dialog" }
+  = form_for Event.new, method: :post, format: :js, remote: true do |f|
+    .modal-dialog.modal-sm{ role: "document" }
+      .modal-content
+        .modal-header
+          %button.close{ type: "button", "data-dismiss" => "modal" }
+            %span &times;
+          %h4.modal-title Add an Event
+
+        .modal-body
+          .form-group
+            = f.text_field :title, class: "form-control", placeholder: "Event description"
+
+          .form-group
+            = f.text_field :start_time, class: "form-control", placeholder: "From"
+
+          .form-group
+            = f.text_field :end_time, class: "form-control", placeholder: "To"
+
+        .modal-footer
+          %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Close
+          %button.btn.btn-primary{ type: "submit" } Save changes
