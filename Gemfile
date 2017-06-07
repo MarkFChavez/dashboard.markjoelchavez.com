@@ -8,6 +8,8 @@ end
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.3'

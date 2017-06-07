@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
+
     root "dashboards#show"
+    resource  :dashboard, only: [:show]
+    resources :events, only: [:index]
+
   end
 
-  resource :dashboard, only: [:show]
 end
