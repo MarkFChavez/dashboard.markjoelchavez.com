@@ -3,7 +3,7 @@ class EventSerializer < ActiveModel::Serializer
   attribute :start
   attribute :end
 
-  belongs_to :user
+  belongs_to :user, serializer: UserSerializer
 
   # For FullCalendar compatibility
   def start
