@@ -20,7 +20,11 @@ class EventsController < ApplicationController
         end: 1.week.from_now + 2.days
       }
     ]
-  
-    render json: @events
+    
+    respond_to do |format|
+      format.json do
+        render json: @events
+      end
+    end 
   end
 end

@@ -19,6 +19,6 @@
 
 $(document).ready(function() {
   $("#calendar").fullCalendar({
-    events: "/events"
+    events: "/events.json"
   });
 })
