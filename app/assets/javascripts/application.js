@@ -12,13 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require moment
 //= require fullcalendar
-//= require_tree .
 
 $(document).ready(function() {
   $("#calendar").fullCalendar({
-    events: "/events.json"
+    events: "/events.json",
+    eventLimit: 3,
+    header: {
+      left: 'prev, next',
+      center: "title",
+      right: 'month, agendaWeek, agendaDay'
+    }
   });
 })
