@@ -5,7 +5,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    current_user.events.create!(event_params)
+    @event = current_user.events.build(event_params)
+    @event.end_time = @event.end_time.end_of_day
+    @event.save!
   end
 
   private
