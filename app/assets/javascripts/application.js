@@ -21,3 +21,5 @@
 //= require calendar
 //= require datetimepicker
 
+var FORMAT = "DD/MM/YYYY";
+

@@ -14,8 +14,8 @@ $ ->
   showCreateEventModal = (date) ->
     $("#create-event-modal").modal("show")
     $("#create-event-modal #event_title").val("")
-    $("#create-event-modal #event_start_time").val(date)
     $("#create-event-modal #event_end_time").val("")
+    $("#create-event-modal #event_start_time").val(date.format(FORMAT))
 
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
