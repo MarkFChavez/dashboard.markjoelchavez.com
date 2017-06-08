@@ -17,6 +17,7 @@
 //= require moment
 //= require fullcalendar
 //= require bootstrap-datetimepicker
+//= require jquery.minicolors
 
 //= require calendar
 //= require datetimepicker

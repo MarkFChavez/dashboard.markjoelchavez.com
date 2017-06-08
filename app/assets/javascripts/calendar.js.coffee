@@ -2,7 +2,6 @@ $ ->
   options =
     aspectRatio: 2.1
     events: "/events.json"
-    eventLimit: 3
     dayClick: (date, jsEvent, view) ->
       showCreateEventModal(date)
     header:
@@ -16,7 +15,11 @@ $ ->
     $("#create-event-modal").modal("show")
     $("#create-event-modal #event_title").val("")
     $("#create-event-modal #event_end_time").val("")
-    $("#create-event-modal #event_start_time").val(date.format(FORMAT))
+    $("#create-event-modal #event_color").val("")
+
+    # SET START TIME
+    startTime = date.format(FORMAT)
+    $("#create-event-modal #event_start_time").val(startTime)
 
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
@@ -24,3 +27,8 @@ $ ->
 
   $("#new_event").on "ajax:error", (e) ->
     alert "Something went wrong"
+
+
+  # MINICOLORS
+  $(".minicolors").minicolors
+    theme: "bootstrap"
