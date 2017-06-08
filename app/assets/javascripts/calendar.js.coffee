@@ -1,13 +1,14 @@
 $ ->
   options =
+    aspectRatio: 2.1
     events: "/events.json"
     eventLimit: 3
     dayClick: (date, jsEvent, view) ->
       showCreateEventModal(date)
     header:
-      left: 'prev, next'
-      center: "title"
-      right: 'month'
+      left: 'title'
+      right: 'prev, next, today, month'
+    displayEventTime: false
 
   $("#calendar").fullCalendar(options)
 

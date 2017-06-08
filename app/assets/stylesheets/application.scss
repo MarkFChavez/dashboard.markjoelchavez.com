@@ -12,12 +12,16 @@ $brand-fg: #002F2F;
 @import "font-awesome";
 @import "fullcalendar";
 
-body {
-  background-color: $brand-bg;
+// body {
+//   background-color: $brand-bg;
+// }
+
+.brand-foreground {
+  color: $brand-fg;
 }
 
 .app-title {
-  color: $brand-fg;
+  @extend .brand-foreground;
   font-size: 3.5em;
 }
 

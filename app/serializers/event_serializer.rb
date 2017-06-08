@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attribute :title
+  attributes :title, :created_at, :updated_at
   attribute :start
   attribute :end
 
