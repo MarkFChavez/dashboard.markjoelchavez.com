@@ -1,20 +1,15 @@
--# %h2 Log in
--# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true
--#   .field
--#     = f.label :password
--#     %br/
--#     = f.password_field :password, autocomplete: "off"
--#   - if devise_mapping.rememberable?
--#     .field
--#       = f.check_box :remember_me
--#       = f.label :remember_me
--#   .actions
--#     = f.submit "Log in"
--# = render "devise/shared/links"
+.row.vertical-center
+  .col-lg-6.col-lg-offset-3
+    .text-center
+      %span.lead.app-title DazzboarD
 
-%h2 Login
-= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path
+      %div
+        %p.lead
+          = fa_icon("dashboard")
+          Building the right things at the right time. Join us now!
+
+      %div
+        = link_to user_facebook_omniauth_authorize_path, class: "btn btn-primary btn-lg" do
+          %span
+            = fa_icon("facebook-square")
+            Sign in with Facebook
