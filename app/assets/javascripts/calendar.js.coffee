@@ -20,6 +20,7 @@ $ ->
     # SET START TIME
     startTime = date.format(FORMAT)
     $("#create-event-modal #event_start_time").val(startTime)
+    $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
 
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
