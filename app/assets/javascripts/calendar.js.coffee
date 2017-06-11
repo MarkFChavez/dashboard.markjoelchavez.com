@@ -9,20 +9,28 @@ $ ->
       right: 'prev, next, today, month'
     displayEventTime: false
 
+  # Initialize fullcalendar
   $("#calendar").fullCalendar(options)
+
+  # Initialize minicolors
+  $(".minicolors").minicolors
+    theme: "bootstrap"
 
   showCreateEventModal = (date) ->
     $("#create-event-modal").modal("show")
+
+    # Reset shown modal
     $("#create-event-modal #event_title").val("")
     $("#create-event-modal #event_end_time").val("")
     $("#create-event-modal #event_color").val("")
 
-    # SET START TIME
+    # Set start time and adjust end time to dates less than the start time to
+    # prevent users from inputting a previous end time.
     startTime = date.format(FORMAT)
     $("#create-event-modal #event_start_time").val(startTime)
     $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
 
-  refetchEvents = () ->
+  refetchEvents = ->
     $("#calendar").fullCalendar("refetchEvents")
 
   $("#new_event").on "ajax:success", (e) ->
@@ -32,7 +40,3 @@ $ ->
   $("#new_event").on "ajax:error", (e) ->
     alert "Something went wrong"
 
-
-  # MINICOLORS
-  $(".minicolors").minicolors
-    theme: "bootstrap"
