@@ -11,7 +11,7 @@
 
     #create-event-modal.modal.fade{ role: "dialog" }
       = form_for Event.new, method: :post, format: :js, remote: true do |f|
-        .modal-dialog.modal-md{ role: "document" }
+        .modal-dialog.modal-sm{ role: "document" }
           .modal-content
             .modal-header
               %button.close{ type: "button", "data-dismiss" => "modal" }
@@ -20,31 +20,38 @@
 
             .modal-body
               .row
-                .col-lg-6
+                .col-lg-12
                   .form-group
-                    = f.text_field :title, class: "form-control", placeholder: "Event description", autocomplete: "off"
-
-                .col-lg-6
-                  .form-group
-                    = f.text_field :color, class: "minicolors form-control", autocomplete: "off", placeholder: "Event color"
+                    = f.label :start_time, "The event starts at"
+                    .input-group.date.dtpicker-start
+                      = f.text_field :start_time, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
+                      %span.input-group-addon
+                        %span.glyphicon.glyphicon-calendar
 
               .row
-                .col-lg-6
+                .col-lg-12
                   .form-group
-                    = f.label :start_time, "Starts at"
-                    .input-group.date.dtpicker-start
-                      = f.text_field :start_time, class: "form-control", autocomplete: "off"
+                    = f.label :end_time, "And ends at"
+                    .input-group.date.dtpicker-end
+                      = f.text_field :end_time, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
                       %span.input-group-addon
                         %span.glyphicon.glyphicon-calendar
 
-                .col-lg-6
+              .row
+                .col-lg-12
                   .form-group
-                    = f.label :end_time, "Ends at"
-                    .input-group.date.dtpicker-end
-                      = f.text_field :end_time, class: "form-control", autocomplete: "off"
-                      %span.input-group-addon
-                        %span.glyphicon.glyphicon-calendar
+                    = f.label :title, "What's the name of this event?"
+                    = f.text_field :title, class: "form-control", autocomplete: "off"
+
+              .row
+                .col-lg-12
+                  .form-group
+                    = f.label :color, "You are required to choose a color so you can identify this event with ease."
+                    = f.text_field :color, class: "minicolors form-control", autocomplete: "off"
+
 
             .modal-footer
-              %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Close
-              %button.btn.btn-primary{ type: "submit" } Save changes
+              -# %button.btn.btn-default{ type: "button", "data-dismiss" => "modal" } Close
+              .text-center
+                %button.btn.btn-lg.btn-primary{ type: "submit" } Publish this Event
+

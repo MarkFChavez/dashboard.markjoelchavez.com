@@ -22,9 +22,12 @@ $ ->
     $("#create-event-modal #event_start_time").val(startTime)
     $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
 
+  refetchEvents = () ->
+    $("#calendar").fullCalendar("refetchEvents")
+
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
-    $("#calendar").fullCalendar("refetchEvents")
+    refetchEvents()
 
   $("#new_event").on "ajax:error", (e) ->
     alert "Something went wrong"
