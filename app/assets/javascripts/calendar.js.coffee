@@ -7,8 +7,8 @@ $ ->
     eventClick: (calEvent, jsEvent, view) ->
       showUpdateEventModal(calEvent)
     header:
-      left: 'title'
-      right: 'prev, next, today, month'
+      left: 'title, prev, next'
+      right: 'today, month, agendaWeek, agendaDay'
     displayEventTime: false
 
   # Initialize fullcalendar
