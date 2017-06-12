@@ -1,11 +1,11 @@
-#create-event-modal.modal.fade{ role: "dialog" }
+#update-event-modal.modal.fade{ role: "dialog" }
   = form_for Event.new, method: :post, format: :js, remote: true do |f|
     .modal-dialog.modal-sm{ role: "document" }
       .modal-content
         .modal-header
           %button.close{ type: "button", "data-dismiss" => "modal" }
             %span &times;
-          %h4.modal-title Add an Event
+          %h4.modal-title Update this Event
 
         .modal-body
           .row
@@ -41,4 +41,4 @@
 
         .modal-footer
           .text-center
-            %button.btn.btn-lg.btn-primary{ type: "submit" } Publish
+            %button.btn.btn-lg.btn-primary{ type: "submit" } Republish

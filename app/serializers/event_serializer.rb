@@ -1,5 +1,5 @@
 class EventSerializer < ActiveModel::Serializer
-  attributes :title, :created_at, :updated_at
+  attributes :id, :title
   attribute :start
   attribute :end
   attribute :color

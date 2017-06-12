@@ -4,6 +4,8 @@ $ ->
     events: "/events.json"
     dayClick: (date, jsEvent, view) ->
       showCreateEventModal(date)
+    eventClick: (calEvent, jsEvent, view) ->
+      showUpdateEventModal(calEvent)
     header:
       left: 'title'
       right: 'prev, next, today, month'
@@ -29,6 +31,15 @@ $ ->
     startTime = date.format(FORMAT)
     $("#create-event-modal #event_start_time").val(startTime)
     $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
+
+  showUpdateEventModal = (event) ->
+    $("#update-event-modal").modal("show")
+
+    # Set initial values in form
+    $("#update-event-modal #event_title").val(event.title)
+    $("#update-event-modal #event_start_time").val(moment(event.start).format(FORMAT))
+    $("#update-event-modal #event_end_time").val(moment(event.end).format(FORMAT))
+    $("#update-event-modal #event_color").val(event.color)
 
   refetchEvents = ->
     $("#calendar").fullCalendar("refetchEvents")
