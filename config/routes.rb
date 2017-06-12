@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options host: "http://localhost"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root "dashboards#show"
     resource  :dashboard, only: [:show]
-    resources :events, only: [:index, :create]
+    resources :events, only: [:index, :create, :update]
   end
 
 end

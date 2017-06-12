@@ -18,6 +18,17 @@ $ ->
   $(".minicolors").minicolors
     theme: "bootstrap"
 
+  refetchEvents = ->
+    $("#calendar").fullCalendar("refetchEvents")
+
+  showUpdateEventModal = (event) ->
+    $("#update-event-modal form").attr("action", event.update_path)
+    $("#update-event-modal #event_title").val(event.title)
+    $("#update-event-modal #event_start_time").val(moment(event.start).format(FORMAT))
+    $("#update-event-modal #event_end_time").val(moment(event.end).format(FORMAT))
+    $("#update-event-modal #event_color").val(event.color)
+    $("#update-event-modal").modal("show")
+
   showCreateEventModal = (date) ->
     $("#create-event-modal").modal("show")
 
@@ -32,22 +43,15 @@ $ ->
     $("#create-event-modal #event_start_time").val(startTime)
     $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
 
-  showUpdateEventModal = (event) ->
-    $("#update-event-modal").modal("show")
-
-    # Set initial values in form
-    $("#update-event-modal #event_title").val(event.title)
-    $("#update-event-modal #event_start_time").val(moment(event.start).format(FORMAT))
-    $("#update-event-modal #event_end_time").val(moment(event.end).format(FORMAT))
-    $("#update-event-modal #event_color").val(event.color)
-
-  refetchEvents = ->
-    $("#calendar").fullCalendar("refetchEvents")
-
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
     refetchEvents()
 
-  $("#new_event").on "ajax:error", (e) ->
+  $("#update_event").on "ajax:success", (e, data) ->
+    $("#update-event-modal").modal("hide")
+    refetchEvents()
+
+  # ERRORS
+  $("#new_event, #update_event").on "ajax:error", (e) ->
     alert "Something went wrong"
 

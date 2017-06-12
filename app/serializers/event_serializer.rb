@@ -1,21 +1,22 @@
-class EventSerializer < ActiveModel::Serializer
-  attributes :id, :title
+class EventSerializer < BaseSerializer
+  attributes :id, :title, :color
   attribute :start
   attribute :end
   attribute :color
+  attribute :update_path
 
   belongs_to :user, serializer: UserSerializer
 
   # For FullCalendar compatibility
   def start
-    object.start_time
+    object.start_time.beginning_of_day
   end
 
   def end
-    object.end_time
+    object.end_time.end_of_day
   end
 
-  def color
-    object.color
+  def update_path
+    event_path(object)
   end
 end

@@ -6,8 +6,16 @@ class EventsController < ApplicationController
 
   def create
     @event = events_by_session_user.build(event_params)
-    @event.set_end_time
     @event.save!
+
+    render json: @event
+  end
+  
+  def update
+    @event = Event.find(params[:id])
+    @event.update!(event_params)
+
+    render json: @event
   end
 
   private

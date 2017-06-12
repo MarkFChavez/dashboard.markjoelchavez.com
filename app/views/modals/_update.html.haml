@@ -1,5 +1,5 @@
 #update-event-modal.modal.fade{ role: "dialog" }
-  = form_for Event.new, method: :post, format: :js, remote: true do |f|
+  = form_tag "", method: :patch, format: :js, remote: true, id: "update_event" do
     .modal-dialog.modal-sm{ role: "document" }
       .modal-content
         .modal-header
@@ -11,34 +11,35 @@
           .row
             .col-lg-12
               .form-group
-                = f.label :start_time, "The event starts at"
+                = label_tag :start_time, "The event starts at"
                 .input-group.date.dtpicker-start
-                  = f.text_field :start_time, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
+                  = text_field_tag "event[start_time]", nil, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
                   %span.input-group-addon
                     %span.glyphicon.glyphicon-calendar
 
           .row
             .col-lg-12
               .form-group
-                = f.label :end_time, "And ends at"
+                = label_tag :end_time, "And ends at"
                 .input-group.date.dtpicker-end
-                  = f.text_field :end_time, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
+                  = text_field_tag "event[end_time]", nil, class: "form-control", autocomplete: "off", placeholder: "DD/MM/YYYY"
                   %span.input-group-addon
                     %span.glyphicon.glyphicon-calendar
 
           .row
             .col-lg-12
               .form-group
-                = f.label :title, "What's the name of this event?"
-                = f.text_field :title, class: "form-control", autocomplete: "off"
+                = label_tag :title, "What's the name of this event?"
+                = text_field_tag "event[title]", nil, class: "form-control", autocomplete: "off"
 
           .row
             .col-lg-12
               .form-group
-                = f.label :color, "You are required to choose a color so you can identify this event with ease."
-                = f.text_field :color, class: "minicolors form-control", autocomplete: "off"
+                = label_tag :color, "You are required to choose a color so you can identify this event with ease."
+                = text_field_tag "event[color]", nil, class: "minicolors form-control", autocomplete: "off"
 
 
         .modal-footer
           .text-center
             %button.btn.btn-lg.btn-primary{ type: "submit" } Republish
+
