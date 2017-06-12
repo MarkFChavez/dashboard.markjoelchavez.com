@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root "dashboards#show"
     resource  :dashboard, only: [:show]
-    resources :events, only: [:index, :create, :update]
+    resources :events, only: [:index, :create, :update, :destroy]
   end
 
 end

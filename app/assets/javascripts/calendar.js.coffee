@@ -22,7 +22,10 @@ $ ->
     $("#calendar").fullCalendar("refetchEvents")
 
   showUpdateEventModal = (event) ->
+    # set URLs
     $("#update-event-modal form").attr("action", event.update_path)
+    $("#update-event-modal #remove_event").attr("href", event.remove_path)
+
     $("#update-event-modal #event_title").val(event.title)
     $("#update-event-modal #event_start_time").val(moment(event.start).format(FORMAT))
     $("#update-event-modal #event_end_time").val(moment(event.end).format(FORMAT))
@@ -42,6 +45,7 @@ $ ->
     startTime = date.format(FORMAT)
     $("#create-event-modal #event_start_time").val(startTime)
     $(".dtpicker-end").data("DateTimePicker").minDate(startTime)
+    $(".dtpicker-end").data("DateTimePicker").defaultDate(startTime)
 
   $("#new_event").on "ajax:success", (e) ->
     $("#create-event-modal").modal("hide")
@@ -51,7 +55,11 @@ $ ->
     $("#update-event-modal").modal("hide")
     refetchEvents()
 
+  $("#remove_event").on "ajax:success", (e, data) ->
+    $("#update-event-modal").modal("hide")
+    refetchEvents()
+
   # ERRORS
-  $("#new_event, #update_event").on "ajax:error", (e) ->
+  $("#new_event, #update_event, #remove_event").on "ajax:error", (e) ->
     alert "Something went wrong"
 

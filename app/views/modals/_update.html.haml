@@ -42,4 +42,4 @@
         .modal-footer
           .text-center
             %button.btn.btn-lg.btn-primary{ type: "submit" } Republish
-
+            = link_to "Remove", "#", id: "remove_event", class: "btn btn-lg btn-danger", data: { confirm: "Are you sure?" }, method: :delete, remote: true

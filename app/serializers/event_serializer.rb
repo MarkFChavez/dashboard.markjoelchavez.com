@@ -4,6 +4,7 @@ class EventSerializer < BaseSerializer
   attribute :end
   attribute :color
   attribute :update_path
+  attribute :remove_path
 
   belongs_to :user, serializer: UserSerializer
 
@@ -17,6 +18,10 @@ class EventSerializer < BaseSerializer
   end
 
   def update_path
+    event_path(object)
+  end
+
+  def remove_path
     event_path(object)
   end
 end
