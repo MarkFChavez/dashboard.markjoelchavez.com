@@ -9,8 +9,10 @@ $brand-fg: #002F2F;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
+@import "sb-admin";
 @import "font-awesome";
 @import "fullcalendar";
+@import "morrisjs-rails";
 @import "jquery.minicolors";
 
 // body {
@@ -21,8 +23,12 @@ $brand-fg: #002F2F;
   color: $brand-fg;
 }
 
+.white-fg {
+  color: #fff;
+}
+
 .app-title {
-  @extend .brand-foreground;
+  @extend .white-fg;
   font-size: 3.5em;
 }
 

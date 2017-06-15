@@ -1,0 +1,16 @@
+#page-wrapper
+  .container-fluid
+    / Page Heading
+    .row
+      .col-lg-12
+        %p.lead
+          %i.fa.fa-calendar-o
+          %u
+            %b Manage your Calendar
+
+  .row
+    .col-lg-12
+      #calendar
+
+  = render "modals/create"
+  = render "modals/update"

@@ -1,6 +1,6 @@
-$(document).on "ready page:load", (e) ->
+$(document).on "turbolinks:load", (e) ->
   options =
-    aspectRatio: 2.1
+    aspectRatio: 2.2
     events: "/events.json"
     dayClick: (date, jsEvent, view) ->
       showCreateEventModal(date)

@@ -1,4 +1,4 @@
-$(document).on "ready page:load", (e) ->
+$(document).on "turbolinks:load", (e) ->
   default_options =
     useStrict:  true
     useCurrent: false

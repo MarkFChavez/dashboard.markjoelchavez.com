@@ -12,15 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.minicolors
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require moment
 //= require fullcalendar
 //= require bootstrap-datetimepicker
-//= require jquery.minicolors
 
 //= require calendar
 //= require datetimepicker
+
+//= require raphael
+//= require morris
 
 var FORMAT = "DD/MM/YYYY";
 
