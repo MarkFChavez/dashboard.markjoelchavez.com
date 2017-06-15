@@ -1,4 +1,4 @@
-$ ->
+$(document).on "ready page:load", (e) ->
   default_options =
     useStrict:  true
     useCurrent: false

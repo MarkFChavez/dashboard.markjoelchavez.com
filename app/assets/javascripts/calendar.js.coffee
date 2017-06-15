@@ -1,4 +1,4 @@
-$ ->
+$(document).on "ready page:load", (e) ->
   options =
     aspectRatio: 2.1
     events: "/events.json"
@@ -7,7 +7,7 @@ $ ->
     eventClick: (calEvent, jsEvent, view) ->
       showUpdateEventModal(calEvent)
     header:
-      left: 'title, prev, next'
+      left: 'prev, next, title'
       right: 'today, month, agendaWeek, agendaDay'
     displayEventTime: false
 
