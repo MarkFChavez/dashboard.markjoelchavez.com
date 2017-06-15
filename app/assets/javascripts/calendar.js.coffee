@@ -10,6 +10,7 @@ $(document).on "turbolinks:load", (e) ->
       left: 'prev, next, title'
       right: 'today, month, agendaWeek, agendaDay'
     displayEventTime: false
+    eventLimit: true
 
   # Initialize fullcalendar
   $("#calendar").fullCalendar(options)
